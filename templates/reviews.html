@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add reviews
+{% endblock title %}
+
+{% block title2 %}
+            <h1>Comments</h1>
+{% endblock title2 %}
+
+{% block content %}
+<h1> Post:</h1>
+<h2 class="post-title">
+              {{reviewdetail.declaration}}
+            </h2>
+            <h3 class="post-subtitle">
+             Comment from {{reviewdetail.commentator}}
+
+            </h3>
+            <h4> Text: "{{reviewdetail.review}}"</h4>
+            <h5> Added {{reviewdetail.review_date}}</h5>
+            <h6> <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="accept_response"  class="btn btn-primary float-right"> Accept</button>
+
+            </form>
+
+                <a class="btn btn-primary float-right" href="{% url 'delete_review' reviewdetail.id %}">Delete</a>
+
+            </h6>
+
+
+{% endblock content %}

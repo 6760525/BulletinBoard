@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Delete
+{% endblock title %}
+
+{% block title2 %}
+            <h1>MMORPG</h1>
+            <span class="subheading">Fan Site</span>
+{% endblock title2 %}
+
+
+{% block content %}
+
+<h1>Delete?</h1>
+<table>
+    <thead>
+           <tr>
+               <td>
+                   Title
+               </td>
+               <td>
+                   Date
+               </td>
+               <td>
+                   Text
+               </td>
+               <td>
+                   Category
+               </td>
+
+           </tr>
+    </thead>
+
+           <tr>
+                 <td>
+                     {{declaration.title}}
+                 </td>
+                 <td>
+                     {{declaration.date_create|date:'d M Y'}}
+                 </td>
+                 <td>
+                     {{declaration.text|truncatechars:50}}
+                 </td>
+               <td>
+                   {{declaration.category}}
+               </td>
+
+             </tr>
+</table>
+<form method="POST">
+    {% csrf_token %}
+    <input class="btn btn-primary float-right" type="submit" value="Confirm">
+</form>
+{% endblock content %}
